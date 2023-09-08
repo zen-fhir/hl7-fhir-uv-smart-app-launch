@@ -1,0 +1,12 @@
+{ns hl7-fhir-uv-smart-app-launch,
+ import #{zen.fhir hl7-fhir-r4-core},
+ ig {:zen/tags #{zen.fhir/ig},
+     :profiles profiles,
+     :value-sets value-sets},
+ profiles {:zen/tags #{zen.fhir/profiles},
+           :schemas {"Task" {"http://hl7.org/fhir/smart-app-launch/StructureDefinition/task-standalone-launch" #zen/quote hl7-fhir-uv-smart-app-launch.task-standalone-launch/schema,
+                             "http://hl7.org/fhir/smart-app-launch/StructureDefinition/task-ehr-launch" #zen/quote hl7-fhir-uv-smart-app-launch.task-ehr-launch/schema},
+                     "Basic" {"http://hl7.org/fhir/smart-app-launch/StructureDefinition/smart-app-state-basic" #zen/quote hl7-fhir-uv-smart-app-launch.smart-app-state-basic/schema}}},
+ value-sets {:zen/tags #{zen.fhir/value-sets},
+             :value-sets {"http://hl7.org/fhir/smart-app-launch/ValueSet/smart-launch-info" #zen/quote hl7-fhir-uv-smart-app-launch.value-set.smart-launch-info/value-set,
+                          "http://hl7.org/fhir/smart-app-launch/ValueSet/smart-launch-types" #zen/quote hl7-fhir-uv-smart-app-launch.value-set.smart-launch-types/value-set}}}

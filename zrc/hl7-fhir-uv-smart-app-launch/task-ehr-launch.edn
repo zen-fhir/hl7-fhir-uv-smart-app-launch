@@ -1,0 +1,20 @@
+{ns hl7-fhir-uv-smart-app-launch.task-ehr-launch,
+ import #{zen.fhir
+          hl7-fhir-uv-smart-app-launch.value-set.smart-launch-types
+          hl7-fhir-r4-core.Task},
+ schema {:zen.fhir/version "0.6.32",
+         :confirms #{zen.fhir/Resource hl7-fhir-r4-core.Task/schema},
+         :zen/tags #{zen.fhir/profile-schema zen/schema},
+         :zen.fhir/profileUri "http://hl7.org/fhir/smart-app-launch/StructureDefinition/task-ehr-launch",
+         :require #{:code :input},
+         :type zen/map,
+         :zen/desc "Defines a Task that indicates the user should launch an application using the SMART on FHIR EHR launch.",
+         :keys {:code {:match {:coding #{{:system "http://hl7.org/fhir/smart-app-launch/CodeSystem/smart-codes",
+                                          :code "launch-app-ehr"}}},
+                       :fhir/flags #{:MS},
+                       :zen.fhir/value-set {:symbol hl7-fhir-uv-smart-app-launch.value-set.smart-launch-types/value-set,
+                                            :strength :required}},
+                :input {:type zen/vector,
+                        :slicing {:slices {}},
+                        :minItems 1}},
+         :zen.fhir/type "Task"}}
